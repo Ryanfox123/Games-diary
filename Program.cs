@@ -1,4 +1,6 @@
 using games_diary.Data;
+using games_diary.Interfaces;
+using games_diary.Repository;
 using games_diary.Settings;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +10,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IGamesRepository, GamesRepository>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
